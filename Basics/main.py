@@ -4,13 +4,10 @@ import os
 
 
 def categorical_to_numeric(data_frame):
-    headers = list()
     for header, type in data_frame.dtypes.iteritems():
         if type == 'object':
-            headers.append(header)
-    for header in headers:
-        data_frame[header] = data_frame[header].astype('category')
-        data_frame[header] = data_frame[header].cat.codes
+            data_frame[header] = data_frame[header].astype('category')
+            data_frame[header] = data_frame[header].cat.codes
     return data_frame
 
 if __name__ == '__main__':
